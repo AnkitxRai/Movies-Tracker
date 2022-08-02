@@ -1,1 +1,108 @@
-<p>register works!</p>
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Responsive Registration Form</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="row clearfix">
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" formControlName="fname" placeholder="First Name" />
+              </div>
+            </div>
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" formControlName="lname" placeholder="Last Name" required />
+              </div>
+            </div>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <input type="text" formControlName="username" placeholder="Username" required />
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <input type="email" formControlName="email" placeholder="Email" required />
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <input type="password" formControlName="password" placeholder="Password" required />
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <input type="password" formControlName="confirm_password" placeholder="Re-type Password" required />
+          </div>
+
+          <div class="input_field radio_option">
+            <input type="radio" formControlName="gender" id="rd1" value="male">
+            <label for="rd1">Male</label>
+            <input type="radio" formControlName="gender" id="rd2" value="female">
+            <label for="rd2">Female</label>
+          </div>
+
+          <div class="form-group" formGroupName="address">
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" formControlName="state" placeholder="State" />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" formControlName="city" placeholder="City" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" formControlName="street" placeholder="Street" />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="number" formControlName="zip" placeholder="Zip" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="input_field select_option">
+              <select formControlName="country">
+                <option selected>Select a country</option>
+                <option value="india">India</option>
+                <option value="usa">Usa</option>
+              </select>
+              <div class="select_arrow"></div>
+            </div>
+          </div>
+          <div>
+            <h4>Select Categories</h4>
+            <div formArrayName="categories" *ngFor="let item of categories; let i=index">
+              <label>
+                <input type="checkbox" [value]="item.name" (change)="onCheckboxChange($event)" />
+                {{item.name}}
+              </label>
+            </div>
+          </div>
+          <br>
+          <br>
+            <div class="input_field">
+                <input type="checkbox" id="cb1" value="true" formControlName="t_c">
+                <label for="cb1">I agree with terms and conditions</label>
+            </div>
+            <div class="input_field">
+                <input type="checkbox" id="cb2" value="true" formControlName="newsletter">
+                <label for="cb2">I want to receive the newsletter</label>
+            </div>
+            <input class="button" type="submit"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdOpacity=0.9 size="default" color="#fff" type="ball-clip-rotate">
+  <p style="color: white"></p>
+</ngx-spinner>
+
+<ngx-spinner bdOpacity=0.9 size="default" color="#fff" type="ball-clip-rotate" name="route-navigation">
+  <p style="color: white"></p>
+</ngx-spinner>
